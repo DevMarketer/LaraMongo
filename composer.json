@@ -1,0 +1,39 @@
+{
+    "name": "devmarketer/laramongo",
+    "description": "A wrapper for MongoDB's PHP Library for Use in Laravel. Enabling access to native methods of the Mongo PHP Library under the Mongo facade in Laravel. This package also extends the Mongo PHP library by enabling Mongo commands that the native PHP library doesn't support, such as GeoSpatial commands.",
+    "keywords": ["mongodb", "laravel", "facade", "helpers", "mongo", "nosql", "geospatial", "GIS"],
+    "license": "MIT",
+    "homepage": "https://github.com/DevMarketer/LaraMongo",
+    "support": {
+        "issues": "https://github.com/DevMarketer/LaraMongo/issues",
+        "source": "https://github.com/DevMarketer/LaraMongo"
+    },
+    "authors": [
+        {
+            "name": "J. Alexander Curtis",
+            "email": "hello@devmarketer.io"
+        }
+    ],
+    "require": {
+      "php": ">=5.5.0",
+			"mongodb/mongodb": "^1.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "DevMarketer\\LaraMongo": "src/"
+        },
+        "files": [
+            "src/DevMarketer/EasyNav/functions.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DevMarketer\\LaraMongo\\MongoServiceProvider"
+            ],
+            "aliases": {
+                "Mongo": "DevMarketer\\LaraMongo\\MongoFacade"
+            }
+        }
+    }
+}
