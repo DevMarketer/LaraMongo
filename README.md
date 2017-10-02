@@ -96,7 +96,7 @@ For all the details on these options and your available options visit:
 MongoDB PHP Library - Official Documentation
 https://docs.mongodb.com/php-library/current/
 
-Remember that this package simply wraps the official MongoDB PHP Library, so you use it in the same way as you would use the main library. Call the `Mongo` facade and then any method you find in the documentation linked above.
+Remember that this package simply wraps the official MongoDB PHP Library, so you use it in the same way as you would use the main library. Call the `Mongo::get()` facade and then any method you find in the documentation linked above.
 
 ### Examples:
 
