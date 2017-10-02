@@ -6,6 +6,14 @@ All features, bug fixes, and changes in the code base will be updated and docume
 
 - Coming Soon
 
+##### 1.0
+
+This update is the primary update for the package, which includes the base functionality intended for it. With this you have access to create a Mongo client and have access to all of the PHP MongoDB Library methods through the easy to use `Mongo` facade.
+
+There are more features coming. But this is the start of a great thing.
+
+Add an issue on github if you want to see anything else with this package. There are some features on the roadmap I hope to add soon.
+
 ##### 0.1 (Beta)
 
 This update focuses on the core of LaraMongo, creating the service provider, facade, and dependencies needed to establish the base functionality of the package for future development.

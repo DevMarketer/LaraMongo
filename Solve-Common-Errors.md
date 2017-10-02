@@ -19,12 +19,12 @@ Basically if you can enable the MongoDB extension your problem will be solved. N
 Before we continue we will need to check if you have the MongoDB php extension installed. You can do this easily in your terminal with the following command:
 
     php -m
- 
- This will make a long list of extensions you have installed. Scroll through to see if you see a line that says `mongodb`. (The list is in alphabetical order)
 
-If you see `mongodb` on the list then skip to step 4.
+This will make a long list of extensions you have installed. Scroll through to see if you see a line that says `mongodb`. (The list is in alphabetical order)
 
-If you do not see `mongodb` on the list, then you **DO NOT** have mongodb installed on your system. You need to install it in the next step.
+**Note: the `mongo` extension is not the same as the `mongodb` extension. You need the `mongodb` one.**
+
+If you do not see `mongodb` on the list, then you **DO NOT** have mongodb extension installed on your system. You need to install it!
 
 ### 3. Install mongodb Extension
 
@@ -32,15 +32,20 @@ The way you install the mongodb extension varies depending on your operating sys
 
 Once it is installed, run `php -m` again and make sure that `mongodb` is on your list now.
 
-### Find Your PHP.ini
+### 4. Still not working?
 
-We need to enable the extension in your php.ini file. So you need to figure out where it is (if you don't know). This is easy enough. In the terminal type the command:
+You will need to reboot PHP or just reboot your computer for the new change to take effect.
+
+If you run a `phpinfo()` page, then you should have a whole section dedicated to MongoDB and a quick `ctrl + F` for "mongo" should yield many results. If you don't have any mentions of Mongo then it has not successfully installed the `mongodb` extension or your PHP install hasn't recognized it yet. This usually is resolved with a reboot.
+
+## Find Your PHP.ini
+
+Looking for your `php.ini` file? This is easy to find.
 
     php --ini
 
-Ths should return 3 lines of information. Long story short, you want the middle one. Copy it to your clipboard.
+This should return 3 lines of information. Long story short, you want the middle one, it is your config file for php.
 
     Configuration File (php.ini) Path:  /usr/local/etc/php/7.0
     Loaded Configuration File:          /usr/local/etc/php/7.0/php.ini
     Scan for additional .ini files in:  /usr/local/etc/php/7.0/conf.d
-
