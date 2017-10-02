@@ -1,3 +1,5 @@
+![laramongo-logo](https://user-images.githubusercontent.com/537329/31087656-1af000ae-a75b-11e7-9b6f-848e0d725e3a.png)
+
 # LaraMongo: MongoDB PHP Driver Integration in Laravel
 
 This package wraps the MongoDB official PHP driver into a facade that can be easy used within Laravel. This means you have access to all the same methods that you will find in the official PHP driver, maintained by MongoDB themselves. The PHP driver does currently lack support for a few native MongoDB commands, and those are being added as well. Not only providing MongoDB PHP Driver support, but also enhancing it with commands such as GeoSpatial commands.
