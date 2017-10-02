@@ -4,7 +4,12 @@ All features, bug fixes, and changes in the code base will be updated and docume
 
 ## Version 1: Official Release
 
-- Coming Soon
+##### 1.1 (Dev)
+
+1. You can now configure the database you want to use.
+	1. To **GET** the current database use the `$db` property like `Mongo::db`
+	1. To **SET** the database use the `db()` method like `Mongo::db('test')`
+1. The `$client` property is now public (was private). I also created a method `client()` which both return the Mongo client object. They can be used interchangeably. This will replace the `get()` method.
 
 ##### 1.0
 

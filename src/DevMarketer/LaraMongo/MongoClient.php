@@ -11,7 +11,7 @@ class MongoClient
   	*
   	* @var MongoDB\Client
   	*/
-	private $client;
+	public $client;
 
 	/**
 		* The current connection Mongo is using.
@@ -19,6 +19,13 @@ class MongoClient
 		* @var string
 		*/
 	public $connection;
+
+	/**
+		* The database to use.
+		*
+		* @var string
+		*/
+	public $db;
 
 
 	/**
@@ -75,14 +82,37 @@ class MongoClient
 		return sprintf("mongodb://%s%s:%s/%s", $auth, $host, $port, $authDb);
 	}
 
+	/**
+	 * Get the mongo client object.
+	 *
+	 * @return MongoDB\Client
+	 */
+	public function client()
+	{
+		return $this->client;
+	}
 
 	/**
-   * Get the mongo object.
-   *
-   */
-  public function get()
-  {
+	 * Set the database to use.
+	 *
+	 * @return MongoDB\Client
+	 */
+	public function db($database)
+	{
+		$this->db = $database;
 		return $this->client;
-  }
+	}
+
+	/**
+	 * Get the mongo object.
+	 * Alias for $this->client()
+	 *
+	 * This has been depreciated, but maintained
+	 * for backward compatibility.
+	 */
+	public function get()
+	{
+		return $this->client;
+	}
 
 }
