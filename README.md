@@ -56,7 +56,54 @@ This generates a config file at `config/mongo.php`. Read on, to learn how to set
 
 ## Usage
 
-__... coming soon ...__
+### Settings
+
+After you have installed everything correctly by following the steps in the **Installation** section above, then you will need to configure a few settings to make sure that the package can connect to your MongoDB installation.
+
+You can configure everything by adding these settings to your `.env` file. If you omit one of these settings from your `.env` file, then these are the values that it defaults to:
+
+```
+MONGO_URI=127.0.0.1
+MONGO_PORT=27017
+MONGO_USERNAME=admin
+MONGO_PASSWORD=
+MONGO_AUTH_DB=admin
+```
+
+Keep the Following in Mind When Setting These Settings:
+1. The `MONGO_URI` setting can contain a hostname, IP address, or UNIX domain socket.
+1. The default value for `MONGO_URI` is `127.0.0.1` which is equivilant to `localhost`.
+1. The `MONGO_PORT` value should be numbers only, do not add a colon to indicate the port, this is handled automatically within the package.
+1. If you have not defined a port for your MongoDB database, you can assume that it is the default value set here of `27017`.
+1. **IMPORTANT** - by default, this package attempts to authenticate. If for some reason you are not using authentication (such as in a local environment) then either omit `MONGO_USERNAME` from your `.env` file, or set it to `null`. This signals to LaraMongo that you do not want to authenticate. This effectively ignores the values of `MONGO_PASSWORD` and `MONGO_AUTH_DB`, even if you set a value to them.
+1. The values set for `MONGO_USERNAME` and `MONGO_PASSWORD` should be normal strings. The LaraMongo package will handle encoding them to the required spec.
+1. The `MONGO_AUTH_DB` value should not contain any leading or trailing slashes. Just a simple string that represents the name of the database which contains your authentication information. (This defaults to `admin` and is a reasonable default for most users, and can often be ommitted if you match this standard).
+
+You can also set additional settings in your `.env` file for custom options.
+
+```
+MONGO_URI_OPTIONS=
+MONGO_DRIVER_OPTIONS=
+```
+
+By default no options are passed, but if you would like to customize something, these should be in a string format that can be converted into an array such as `MONGO_URI_OPTIONS='["replicaSet" => "test"]'`.
+
+For all the details on these options and your available options visit:  
+[MongoDB PHP Driver - Connection String Options](https://docs.mongodb.com/manual/reference/connection-string/#connection-string-options)
+
+### Documentation
+
+MongoDB PHP Library - Official Documentation
+https://docs.mongodb.com/php-library/current/
+
+Remember that this package simply wraps the official MongoDB PHP Library, so you use it in the same way as you would use the main library. Call the `Mongo` facade and then any method you find in the documentation linked above.
+
+### Examples:
+
+This example will get the collection object from the `examplecollect` collection inside of the `testdb` Database. The second line uses that collection object and gets everything out of it and converts it to an array for use inside of PHP.
+
+    $collection = Mongo::get()->testdb->sample;
+    return $collection->find()->toArray();
 
 ## Contribute
 
