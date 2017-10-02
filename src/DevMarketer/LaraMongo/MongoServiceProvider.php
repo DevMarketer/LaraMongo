@@ -38,11 +38,11 @@ class MongoServiceProvider extends ServiceProvider
 	    );
       $this->app->bind('laramongo', function($app)
       {
-				$defaultConnection = $config->get("default_connection");
+				$connection = config("mongo.default_connection");
 
-				$uri = config("mongo.connections.$defaultConnection.uri");
-				$uriOptions = config("mongo.connections.$defaultConnection.uri_options");
-				$driverOptions = config("mongo.connections.$defaultConnection.driver_options");
+				$uri = config("mongo.connections.$connection.uri");
+				$uriOptions = config("mongo.connections.$connection.uri_options");
+				$driverOptions = config("mongo.connections.$connection.driver_options");
 
         return new MongoClient($uri, $uriOptions, $driverOptions, $connection);
       });

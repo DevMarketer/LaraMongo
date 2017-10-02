@@ -35,7 +35,7 @@ class MongoClient
 			$mHost = $this->validate($uri, null);
 			$mUri = $this->createUri($mHost);
 			$mUriOptions = $this->validate($uriOptions, [], true);
-			$mDriverOptions = $this->validate($mDriverOptions, [], true);
+			$mDriverOptions = $this->validate($driverOptions, [], true);
 
 			$this->client = new Client($mUri, $mUriOptions, $mDriverOptions);
 	}
@@ -69,10 +69,10 @@ class MongoClient
 		$username = config($configShort."username");
 		$password = config($configShort."password");
 		$port = config($configShort."port");
-		$authDb = ($username ? config($configShort."auth_db").'/' : '');
+		$authDb = ($username ? config($configShort."auth_db") : '');
 		$auth = '';
 		if ($username) $auth = rawurlencode($username).':'.rawurlencode($password).'@';
-		return sprintf("mongodb://%s%s:%s/%s",$uri, $host, $port, $authDb);
+		return sprintf("mongodb://%s%s:%s/%s", $auth, $host, $port, $authDb);
 	}
 
 
