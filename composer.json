@@ -23,7 +23,7 @@
             "DevMarketer\\LaraMongo": "src/"
         },
         "files": [
-            "src/DevMarketer/EasyNav/functions.php"
+            "src/DevMarketer/LaraMongo/functions.php"
         ]
     },
     "extra": {
